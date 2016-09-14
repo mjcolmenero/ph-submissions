@@ -49,7 +49,11 @@ No aplicamos cargos por procesamiento de artículos (APCs), o suscripción bibli
 Todos los tutoriales que aparecen en *The Programming Historian* han sido rigurosamente revisados por pares, corregidos y editados. Cada lección es supervisada a través del proceso de revisión por uno de nuestros editores, a quien es asignado el texto. La revisión implica un riguroso intercambio con el editor para asegurar que la lección funciona tal cual se ha planeado y que todos los conceptos están explicados por completo para un lector no especializado, antes de que el tutotial sea enviado para su prueba a los revisores externos y que estos provean sus comentarios. Pretendemos regresar el material revisado a los autores de la manera más rápida, pero nuestra prioridad siempre es asegurar un producto de calidad.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Nuestro proceso de revisión entre pares en un poco diferente del que puede considerarse el proceso “tradicional”. No solicitamos a los revisores que juzguen si el tutorial es "suficientemente bueno" para ser publicado. Por el contrario, consideramos el proceso de revisión como un componente integral del esfuerzo colaborativo, productivo y sustentable de académicos para crear mutuamente (no se si mutuamente funcione bien acá) recursos técnicos útiles. Una vez que el tutorial pasa a nuestro [flujo de trabajo editorial], nuestro objetivo es hacer todo lo posible para asegurar que el tutorial sea lo más útil posible y sea publicado en un tiempo razonable. Para más información, consulta nuestra [Guía para revisores] .
+=======
+Nuestro proceso de revisión entre pares en un poco diferente del que puede considerarse el proceso “tradicional”. No solicitamos a los revisores que juzguen si el tutorial es "suficientemente bueno" para ser publicado. Por el contrario, consideramos el proceso de revisión como un componente integral del esfuerzo de académicos colaborativo, productivo y sustentable para crear mutuamente recursos técnicos útiles. Una vez que el tutorial pasa a nuestro [flujo de trabajo editorial], nuestro objetivo es hacer todo lo posible para asegurar que el tutorial sea lo más útil posible y sea publicado en un tiempo razonable. Para más información consulta nuestra [Guía para revisores].
+>>>>>>> gh-pages
 =======
 Nuestro proceso de revisión entre pares en un poco diferente del que puede considerarse el proceso “tradicional”. No solicitamos a los revisores que juzguen si el tutorial es "suficientemente bueno" para ser publicado. Por el contrario, consideramos el proceso de revisión como un componente integral del esfuerzo de académicos colaborativo, productivo y sustentable para crear mutuamente recursos técnicos útiles. Una vez que el tutorial pasa a nuestro [flujo de trabajo editorial], nuestro objetivo es hacer todo lo posible para asegurar que el tutorial sea lo más útil posible y sea publicado en un tiempo razonable. Para más información consulta nuestra [Guía para revisores].
 >>>>>>> gh-pages
@@ -90,7 +94,11 @@ El equipo del proyecto y los miembros de la comunidad en general están involucr
 ## Financiamiento y propiedad
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 *The Programming Historian* es una iniciativa dirigida por voluntarios, controlada en su totalidad por el "Consejo Editorial de The Programming Historian" con la ayuda de contribuyentes de la comunidad. No es una persona moral (entidad legal? o persona jurídica?) y no recibe financiación directa de ninguna fuente actualmente.
+=======
+*The Programming Historian* es una iniciativa dirigida por voluntarios, controlada en su totalidad por el "Consejo Editorial de The Programming Historian" con la ayuda de contribuyentes de la comunidad. No es una persona jurídica y no recibe financiación directa de ninguna fuente actualmente.
+>>>>>>> gh-pages
 =======
 *The Programming Historian* es una iniciativa dirigida por voluntarios, controlada en su totalidad por el "Consejo Editorial de The Programming Historian" con la ayuda de contribuyentes de la comunidad. No es una persona jurídica y no recibe financiación directa de ninguna fuente actualmente.
 >>>>>>> gh-pages
