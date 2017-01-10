@@ -9,28 +9,33 @@ layout: default
 
 ## Lesson Goals
 
-
-
-##About Geocoding
+This tutorial forms part of the Mapping and GIS series on *Programming Historian*, and builds upon skills you will have learned in earlier tutorials, especially [Installing QGIS 2.0 and Adding Layers](http://programminghistorian.org/lessons/qgis-layers). You will learn how to combine historial data which contains place names with a map using QGIS, allowing you to explore that data spatially.  
 
 Historians often want to create maps of historical data, as well as using and manipulating historical maps. Many types of sources used by historians are inherently spatial:
-
 - Census, population or taxation data
 - Imports and exports
 - Routes and itineraries
-
-Mapping data such as these involves rendering spatial information which humans can understand (such as names of towns or counties) into a format that can be understood by [GIS](https://en.wikipedia.org/wiki/Geographic_information_system) (mapping) software: geometry relating to latitude and longitude - geodata. 
-
-There is often confusion between processes of [geocoding](https://en.wikipedia.org/wiki/Geocoding) and [georeferencing](https://en.wikipedia.org/wiki/Georeference). 
-
-- Georeferencing refers to placing visual elements, usually raster images such as satellite photographs, scans of old maps, or some types of vector image such as architectural or archaeological drawings, into geographical space. This involves specifying latitude, longitude and scale.
-- Geocoding is the process of resolving addresses (or some other kind of spatial description) which form part of a dataset into points on a map. This gives the ability to view, analyse and query that dataset spatially.
 
 Geocoding your data offers many advantages, such as being able to:
 
 - Display your data as a map (whether it originated as a list, table, or prose)
 - Analyse distances between locations in your data
 - View and analyse geographical distribution within your data
+
+##About Geocoding
+
+Mapping data such as these involves rendering spatial information which humans can understand (such as names of towns or counties) into a format that can be understood by [GIS](https://en.wikipedia.org/wiki/Geographic_information_system) (mapping) software: some kind of geometry (a point, line or polygon in a vector representation) relating to the coordinates of this element in two dimensional space – these might be latitude and longitude expressed in degrees, or as is often the case in the UK, eastings and northings of the British National Grid. Geocoding always depends on the use of a [gazetter](https://en.wikipedia.org/wiki/Gazetteer), or list of places and coordinates.
+
+There is often confusion between processes of [geocoding](https://en.wikipedia.org/wiki/Geocoding) and [georeferencing](https://en.wikipedia.org/wiki/Georeference). 
+
+- Georeferencing refers to placing visual elements, usually raster images such as satellite photographs, scans of old maps, or some types of vector image such as architectural or archaeological drawings, into geographical space. This involves specifying latitude, longitude coordinates, and scale.
+- Geocoding is the process of resolving addresses (or some other kind of spatial description) which form part of a dataset into geometries on a map. This gives the ability to view, analyse and query that dataset spatially.
+
+In many modern applications geocoding is completed automatically, often using the mapping tools and gazetters offered seamlessly as part of Google Maps or OpenStreetMap. When working with contemporary data, or data from relatively recent periods, and Western European or North American historical contexts, this is often sufficient. If you are using data containing place names that are consistent with the present day, you can use the QGIS web geocoder plugin detailed in the postscript to this tutorial, or the [Edinburgh Geoparser](http://programminghistorian.github.io/ph-submissions/lessons/geoparser-lesson).
+
+Many historians will be working on contexts where the place names in their data do not match the present day. Remember that street names tend to change relatively frequently, either in terms of spelling or entirely. Administrative areas have changed relatively frequently and were sometimes used inconsistently in historical sources (e.g. Bristol in Gloucestershire, Somerset, City of Bristol, Avon?) and indeed places have moved between countries, and countries have changed in name and extent. Even town names have changed and are subject to linguistic ambiguities (e.g. *Lynn Episcopi*, Bishop's Lynn, Lynn, King's Lynn, Kings Lynn). For these reasons it is often better to avoid using automated online geocoding tools and create a gazetteer to suit the historical context which you are researching. 
+
+The processes described in this tutorial are manual, and can be modified and applied to almost any geographical or historical context. 
 
 ## Lesson Structure
 
@@ -39,15 +44,13 @@ This lesson is divided into two main sections:
 - Part 1: Joining tables, which is a simple way of mapping simple summary data such as totals or averages
 - Part 2: Geocoding full datasets, which maps each item of data to a location, allowing much more flexibility, detailed spatial analysis, and more interesting maps 
 
-The processes described are manual, and can be modified and applied to almost any geographical or historical context. At the end of the tutorial there is a note on using automated geocoding tools which are available to work with modern addresses, but these are of limited relevance to historians. Remember that street names tend to change relatively frequently, either in terms of spelling or entirely. Administrative areas have changed relatively frequently and were sometimes used inconsistently in historical sources (e.g. Bristol in Gloucestershire, Somerset, City of Bristol, Avon?) and indeed places have moved between countries, and countries have changed in name and extent. Even town names have changed and are subject to linguistic ambiguities (e.g. *Lynn Episcopi*, Bishop's Lynn, Lynn, King's Lynn, Kings Lynn). For these reasons it is often better to avoid using automated online geocoding tools and create a gazetteer to suit the historical context which you are researching. 
+At the end of the tutorial there is a note on using automated geocoding tools which are available to work with modern addresses, but these are of limited relevance to historians working on eras before the late nineteenth or twentieth centuries.  
 
 ## Getting Started
 
 This tutorial assumes that you have installed QGIS version 2 or above and have followed the *Programming Historian* tutorial [Installing QGIS 2.0 and Adding Layers](http://programminghistorian.org/lessons/qgis-layers) by Jim Clifford, Josh MacFadyen and Daniel Macfarlane. 
 
 The tutorial was prepared using QGIS 2.14 'Essen' on Mac OS X 10.11 – menus, windows, and options might appear slightly different on different platforms or versions, but it should not be difficult to translate any differences. At a few points in the tutorial reference is made to how these techniques could be applied using ArcGIS, which is the industry standard commercial GIS application, and is widely available at universities, but is not always superior to QGIS.
-
-**NB** QGIS requires a range of additional supporting framework applications, such as GDAL. These are installed automatically on Microsoft Windows, but must be installed separately on other platforms. They are included in the `.dmg` download file for MacOS X, and must be installed first.
 
 You will also need to use a relational database such as Microsoft Access or LibreOffice Base, or alternatively be very proficient with spreadsheets.
 
