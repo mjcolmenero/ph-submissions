@@ -180,19 +180,21 @@ If there are too many results, then each row in one table is matching multiple r
 ### Adding Geocoded Data to QGIS
 
 You can now return to QGIS and add the data back to your map, using the new X and Y columns to map the data onto the map.
-1.	use the `Add Delimited Text Layer` button (large comma symbol) to add your new CSV file to your GIS project.
+
+1.  Use the `Add Delimited Text Layer` button (large comma symbol) to add your new CSV file to your GIS project.
 2.  Notice that when you choose this CSV file the options `First record has field names` and `Geometry definition: point coordinates` are automatically enabled, and the fields `X` and `Y` are chosen in the drop-down fields for X and Y coordinates. 
-3. Once you click OK you will be prompted to select the Coordinate Reference System for these coordinates. This should be the same as that which you chose when originally creating your project and exporting the gazetteer information: OSGB 1936 (EPSG:27700).
-4. Click OK and your data should be instantly mapped onto your project. 
+3.  Once you click OK you will be prompted to select the Coordinate Reference System for these coordinates. This should be the same as that which you chose when originally creating your project and exporting the gazetteer information: `OSGB 1936 (EPSG:27700)`.
+4.  Click OK and your data should be instantly mapped onto your project. 
 
 When you add data that has been geocoded as points in this way, you only initially see a single point in each location. Because each line of data has exactly the same coordinates, they overlap. 
 
 There are several ways to depict this data in ways that are more meaningful, and in this regard QGIS has many advantages over the leading commercial software ArcGIS. This can be achieved by creating a new polygon layer containing a count (or sum, average etc) of points contained within each polygon (available via the menu `Vector>Analysis Tools>Points in Polygon` - this feature is known as a spatial join in ArcGIS). The result of this method would be essentially the same as summarising your data externally (in a database or spreadsheet) and then performing a table join. 
 
 A more useful way of depicting the geocoded data is to use QGIS's advanced display styles such as Heatmap or Point Displacement (these features are laborious to replicate in ArcGIS, and involve creating 'representations' in parallel to layers). Point Displacement is probably the most appropriate way to explore this particular data. 
+
 1.	In the Layers Panel again right-click on the map layer and select Layer properties then the `Style` tab. In the top dropdown select `Point Displacement`. 
-2. Tweak the options to make a view that is clear and legible.`Concentric Rings` are probably clearer than `rings`, and remember the sizes remain constant regardless of the zoom level, so zoom in to see the results more clearly. 
-3. Also explore the Heat Map style and think about when each of these two styles might be more appropriate. 
+2.  Tweak the options to make a view that is clear and legible.`Concentric Rings` are probably clearer than `rings`, and remember the sizes remain constant regardless of the zoom level, so zoom in to see the results more clearly. 
+3.  Also explore the Heat Map style and think about when each of these two styles might be more appropriate. 
 
 {% include figure.html filename="QGISFigure7.png" caption="The layer properties Style tab, showing point displacement styles, depicting points that actually overlap at precisely the same location" %}
 
@@ -215,8 +217,8 @@ Major online mapping providers such as Google, Bing, and OpenStreetMap all offer
 - Google provides two web based tools that allow direct use of their geocoding tools as well as their cartography: Google MyMaps and Google Fusion Tables. Both allow the upload of spreadsheets containing address columns, which are automatically geocoded.
 - Within QGIS these APIs are available to geocode data via a number of dedicated plugins. Currently (February 2016) the most popular and well supported of these is MMQGIS.
 
-1. Install MMQGIS using the ‘Manage and Install Plugins’ tool
-2. Once installed, a new MMQGIS menu appears in the menu bar. `Geocoding` is one of the menu options within this, and `GeoCode CSV using Google Maps / Open Street Map` within that. 
-3. The `GeoCode CSV using Google Maps / Open Street Map` dialog allows you to load a data table from a CSV file and specify the columns that contain (street) address, city, state and country. These are then processed using the selected online service. Successful results are created as points in a new layer (in the specified shapefile). Rows from the table that are not matched are listed in a new CSV file that is also created.
+1.  Install MMQGIS using the ‘Manage and Install Plugins’ tool
+2.  Once installed, a new MMQGIS menu appears in the menu bar. `Geocoding` is one of the menu options within this, and `GeoCode CSV using Google Maps / Open Street Map` within that. 
+3.  The `GeoCode CSV using Google Maps / Open Street Map` dialog allows you to load a data table from a CSV file and specify the columns that contain (street) address, city, state and country. These are then processed using the selected online service. Successful results are created as points in a new layer (in the specified shapefile). Rows from the table that are not matched are listed in a new CSV file that is also created.
 
 {% include figure.html filename="QGISFigure8.png" caption="The 'Web Service Geocode' dialog from the MMQGIS plugin" %}
