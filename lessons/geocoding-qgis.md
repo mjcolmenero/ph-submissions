@@ -166,7 +166,8 @@ This tutorial uses LibreOffice, which is an Open Source alternative to Microsoft
 
 {% include figure.html filename="QGISFigure6.png" caption="The query design completed in LibreOffice Base, showing the join between the tables and the grid detailing the fields that will show in the result" %}
 
-10. Click `Save` and then `Run Query` (cylinder icon with a plus symbol). Once you are happy with the results close the query window and export the results as a CSV file, in LibreOffice Base this is done by dragging the query itself onto the first cell of a new LibreOffice Sheets spreadsheet and then choosing `Save As`, use the default settings and save the file as `GeocodedAlumni.csv`
+10. Click `Save` and then `Run Query` (cylinder icon with a plus symbol). Once you are happy with the results close the query window.
+11.  Export the results as a CSV file, in LibreOffice Base this is done by dragging the query itself onto the first cell of a new LibreOffice Calc spreadsheet.  Then choosing `Save As`, select the CSV format using the `File Type` drop down at the bottom of the Save window, and click save to create the file as `GeocodedAlumni.csv`.
 
 ### Troubleshooting Database Gazetteer Joins
 
