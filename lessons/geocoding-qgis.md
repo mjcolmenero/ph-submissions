@@ -91,9 +91,9 @@ In this short tutorial we will map the total numbers of early modern University 
 8.  In the pop-up window select the new table you imported (`AlumniCounties`) as the `Join layer` and in the `Join field` and `Target field` choose the columns in each which contain the same information (the county name). The `Join field` is `Row Labels` in this case, and the `Target field` is the field in the map layer’s attribute table which contains the corresponding information (in this case `NAME`). 
 9.	You can check that this join has worked by right-clicking on the shapefile layer and choosing `Open Attribute Table`. Notice that `AlumiCounties_Count Place of Origin` has now appeared as one of the columns in the counties shape layer, along with the various codes and ID numbers that are part of the shapefile we downloaded.
 
-{% include figure.html filename="QGISFigure1.png" caption="The join fields to vector dialogue" %}
+ {% include figure.html filename="QGISFigure1.png" caption="The join fields to vector dialogue" %}
 
-This data can now be shown on the map by changing the options in the the `Style` tab of layer properties. QGIS offers a very wide range of style options to convey the data associated with each map element in a graphical form. The most useful are `Graduated`, which allows you to map a colour gradient to a range of numerical values in your data, and `Categorised`, which allows you to assign colours or other visual styles to text values or numerical ranges in your tables. For data such as this, with many different values within a logical range, the `graduated` style of representation is appropriate; if there were just a limited range of potential values, these could be displayed more effectively using the `categorized` option. 
+ This data can now be shown as a [choropleth map](https://en.wikipedia.org/wiki/Choropleth_map) by changing the options in the the `Style` tab of layer properties. QGIS offers a very wide range of style options to convey the data associated with each map element in a graphical form. The most useful are `Graduated`, which allows you to map a colour gradient to a range of numerical values in your data, and `Categorised`, which allows you to assign colours or other visual styles to text values or numerical ranges in your tables. For data such as this, with many different values within a logical range, the `graduated` style of representation is appropriate; if there were just a limited range of potential values, these could be displayed more effectively using the `categorized` option. 
 
 11.	In the Layers Panel right click on the map layer (probably called the same as the shapefile that you added: `UKDefinitionA`) and select Properties, and then choose the Style tab on the left.
 12.	From the top dropdown box select the `Graduated` style
@@ -101,9 +101,7 @@ This data can now be shown on the map by changing the options in the the `Style`
 
 {% include figure.html filename="QGISFigure2.png" caption="The vector layer Styles tab showing classified values based on the field joined from the table" %}
 
-Examine the results of your map and think about what is actually being represented. Are the raw numbers of alumni, coloured according to the same classes, for very differently sized counties, helpful? 
-
-For more information on choosing the correct classification method for your data, start by looking at this article on [Classification in GIS](http://wiki.gis.com/wiki/index.php/Classification).
+ For more information on choosing the correct classification method for your data, start by looking at this article on [Classification in GIS](http://wiki.gis.com/wiki/index.php/Classification). Examine the results of your map and think about what is actually being represented. Are the raw numbers of alumni, coloured according to the same classes, for very differently sized counties, helpful?
 
 You may wish to experiment with the Expression Builder (accessed via the &sum; symbol next to `Column` in `Properties>Style`) to normalise these values using other columns and values that are available to you. Ideally we might normalise by population, but in the absence of this data, you might experiment by using the `$area` property, which is intrinsic to polygon shape layers in GIS. The very simple expression needed to create a map colour ramp on this would be (note that the field name contains spaces, so needs to be contained within double quotation marks):
 
