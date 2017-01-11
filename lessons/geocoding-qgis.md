@@ -123,12 +123,15 @@ If no gazetteer exists for the area or period that you are studying, you can mak
 ### Tutorial: Geocoding with a Gazetteer
 
 If you have completed the first part, you can carry on and follow the steps below in the same project. If you did not, or you want to start a new clean project, follow the instructions from the first section to:
+
 1.  Set up a new Project file in QGIS, and set the Coordinate Reference System to `OSGB 1936/the British National Grid` with the authority ID `ESPG:27700` as a projected coordinate system using `Project>Project Properties>CRS`
 2.  Download a Shapefile containing polygons of the historic counties of England and Wales from [http://www.county-borders.co.uk/](http://www.county-borders.co.uk/) (choose definition A and the OS National Grid). 
+
 Using your existing project, you can now start to add more layers to create your gazetteer:
+
 1.  Use `Add Vector Layer` to add a new copy of the Shapefile to a your project. (GIS software allows you to add the same Shapefile to your project as many times as you like and each instance will appear as a separate layer).
-2.	Examine the data contained within the Shapefile by right-clicking on the name of the map in the Layers Panel and selecting `Open Attribute Table`. Notice that columns include various codes, the names of the counties, and abbreviations, but not any coordinates. A polygon is comprised of a whole sequence of coordinates defining its boundary points (nodes) therefore they are hidden from you.
-3.	As we want to assign a single pair of coordinates to each row of our data, we need to generate suitable coordinates from our polygons by finding their centre points (centroids). It is easy to create a new layer of points from this polygon layer which will have a single pair of centroid coordinates for each county. Select `Vector>Geometry Tools>Polygon Centroids`. Select a new name for the resulting Shapefile such as `CountiesCentroids` and select `add to canvas`
+2.  Examine the data contained within the Shapefile by right-clicking on the name of the map in the Layers Panel and selecting `Open Attribute Table`. Notice that columns include various codes, the names of the counties, and abbreviations, but not any coordinates. A polygon is comprised of a whole sequence of coordinates defining its boundary points (nodes) therefore they are hidden from you.
+3.  As we want to assign a single pair of coordinates to each row of our data, we need to generate suitable coordinates from our polygons by finding their centre points (centroids). It is easy to create a new layer of points from this polygon layer which will have a single pair of centroid coordinates for each county. Select `Vector>Geometry Tools>Polygon Centroids`. Select a new name for the resulting Shapefile such as `CountiesCentroids` and select `add to canvas`
 
 {% include figure.html filename="QGISFigure3.png" caption="The Polygon Centroids dialogue and result" %}
 
