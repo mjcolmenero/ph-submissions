@@ -101,7 +101,9 @@ This data can now be shown on the map by changing the options in the the `Style`
 
 {% include figure.html filename="QGISFigure2.png" caption="The vector layer Styles tab showing classified values based on the field joined from the table" %}
 
-14.	Examine the results of your map and think about what is actually being represented. Are the raw numbers of alumni, coloured according to the same classes, for very differently sized counties, helpful? 
+Examine the results of your map and think about what is actually being represented. Are the raw numbers of alumni, coloured according to the same classes, for very differently sized counties, helpful? 
+
+For more information on choosing the correct classification method for your data, start by looking at this article on [Classification in GIS](http://wiki.gis.com/wiki/index.php/Classification).
 
 You may wish to experiment with the Expression Builder (accessed via the &sum; symbol next to `Column` in `Properties>Style`) to normalise these values using other columns and values that are available to you. Ideally we might normalise by population, but in the absence of this data, you might experiment by using the `$area` property, which is intrinsic to polygon shape layers in GIS. The very simple expression needed to create a map colour ramp on this would be (note that the field name contains spaces, so needs to be contained within double quotation marks):
 
@@ -147,18 +149,18 @@ This data can now be matched against your existing data to complete the geocodin
 
 We can now create a composite table of these locations and the data from our original table. This is created by matching the name of the county in the 'place' field of the alumni table with its equivalent in the new gazetteer using a relational database. This tutorial assumes that you have many hundreds or thousands or rows of data (as we do in this tutorial), requiring an automated method. If you only have a few rows, or you have difficulties using these methods, it is possible to do it manually - see 'Geocoding your own Historical Data' below.
 
-In simple scenarios (such as this one where we are only matching a single 'place' attribute – i.e. only 'county') it is possible to code your data to a gazetteer using the VLOOKUP function in Microsoft Excel (or equivalent spreadsheets) or even using the MMQGIS plugin within QGIS. However, in most practical scenarios you will probably wish to match  on several attributes simultaneously (town, county and country for instance – you would want to distinguish between Sudbury, Suffolk, England; Sudbury, Derbyshire, England; Sudbury, Middlesex, England; and Sudbury, Ontario, Canada). This can be achieved in a somewhat cumbersome way using the INDEX function in Excel, but is more practical, and extensible, in a relational database such as Microsoft Access or LibreOffice Base. 
+In simple scenarios (such as this one where we are only matching a single 'place' attribute – i.e. only 'county') it is possible to code your data to a gazetteer using the VLOOKUP function in Microsoft Excel (or equivalent spreadsheets) or even using the MMQGIS plugin within QGIS. However, in most practical scenarios you will probably wish to match  on several attributes simultaneously (for instance town, county and country – you would want to distinguish between Sudbury, Suffolk, England; Sudbury, Derbyshire, England; Sudbury, Middlesex, England; and Sudbury, Ontario, Canada). This can be achieved in a somewhat cumbersome way using the INDEX function in Excel, but is more practical, and extensible, in a relational database such as Microsoft Access or LibreOffice Base. 
 
-This tutorial uses LibreOffice, which is an Open Source alternative to Microsoft Office and is available for Windows, Mac OS X and all variants of Linux etc (NB it requires a full Java installation). It includes a relational database application on all platforms, unlike Microsoft Access which is available only in the Windows version of Office. However, it is quite restricted in its functionality. If you use Microsoft Access, or are a very proficient spreadsheet user, please feel free replicate this process using your preferred software.
+This tutorial uses LibreOffice, which is an Open Source alternative to Microsoft Office and is available for Windows, Mac OS X and all variants of Linux etc (NB it requires a full Java installation). It includes a relational database application on all platforms, unlike Microsoft Access which is available only in the Windows version of Office. However, it is quite restricted in its functionality. If you use Microsoft Access, or are a very proficient spreadsheet user, please feel free to replicate this process using your preferred software.
 
 1. Open LibreOffice Base and create and save a new database project using the default settings.
-2. Data can be imported into Base only by opening in LibreOffice Calc and copy-pasting the whole sheet. Open LibreOffice Calc and load the CSV file `CountiesXY.csv` (which is the full output of the 'Using Gazetteers to Extract Sets of Keywords from Free-Flowing Texts' tutorial above ) and click `Copy`
+2. Data can be imported into Base only by opening in LibreOffice Calc and copy-pasting the whole sheet. Open LibreOffice Calc and load the CSV file `CountiesXY.csv` (which is the full output of the 'Using Gazetteers to Extract Sets of Keywords from Free-Flowing Texts' tutorial ) and click `Copy`
 3. Open LibreOffice Base and click `Paste`. In the dialog that appears set a table name such as `Alumni` and choose `Definition and data` and `use first line as column names`, and finally click `Create`. 
 4. You will be prompted to create a primary key, which is a unique id number for each row, which you should accept. You may also get a warning about a value that is too long in one of the fields, which you can accept in this instance (but note that it means some records may get truncated).
 5. Repeat for the CSV file containing the historical data of Oxford University Alumni (`AlumniCounties.csv`)
 6. Look at each to refresh yourself on the contents of the columns.
 
-{% include figure.html filename="QGISFigure5.png" caption="Copying a table into LibreOffice Base" %}
+ {% include figure.html filename="QGISFigure5.png" caption="Copying a table into LibreOffice Base" %}
 
 7. Go to the `Queries` pane and select `Create a Query using Design View` and add both tables so that you see small windows appear with lists of the field names in each table. Link the ‘Place of origin’ field in the alumni table to the `Name` field of the Counties table by dragging and dropping one field name onto the other.
 8. Double click each field in the alumni table, which to adds it to the list of fields below (which define the structure of the table that you will get as the result of the query). 
@@ -169,7 +171,7 @@ This tutorial uses LibreOffice, which is an Open Source alternative to Microsoft
 10. Click `Save` and then `Run Query` (cylinder icon with a plus symbol). Once you are happy with the results close the query window.
 11.  Export the results as a CSV file, in LibreOffice Base this is done by dragging the query itself onto the first cell of a new LibreOffice Calc spreadsheet.  Then choosing `Save As`, select the CSV format using the `File Type` drop down at the bottom of the Save window, and click save to create the file as `GeocodedAlumni.csv`.
 
-*NB* While relational database queries such as this are very powerful in allowing you match multiple criteria simultaneously, they can also present misleading results if not checked carefully. Check the section Troubleshooting Database Gazetteer Joins at the end of this tutorial for hints on checking results of joins when working with your own data. 
+*NB* While relational database queries such as this are very powerful in allowing you match multiple criteria simultaneously, they can also present misleading results if not checked carefully. Check the section **Troubleshooting Database Gazetteer Joins** at the end of this tutorial for hints on checking results of joins when working with your own data. 
 
 
 ### Adding Geocoded Data to QGIS
@@ -183,7 +185,7 @@ You can now return to QGIS and add the data back to your map, using the new X an
 
 When you add data that has been geocoded as points in this way, you only initially see a single point in each location. Because each row of data has been geocoded with exactly the same coordinates, they overlap and you can't immediately see how many there are. 
 
-There are several ways to depict this data in ways that are more meaningful, and in this regard QGIS has many advantages over the leading commercial software ArcGIS. The most basic way that this can be achieved by creating a new polygon layer containing a new column with a count of points contained within each polygon (this feature is equivalent to a spatial join in ArcGIS). The result of this method would be essentially the same as summarising your data externally (in a database or spreadsheet) and then performing a table join. 
+There are several ways to display this data in ways that are more meaningful, and in this regard QGIS has many advantages over the leading commercial software ArcGIS. The most basic way that this can be achieved by creating a new polygon layer containing a new column with a count of points contained within each polygon (this feature is equivalent to a spatial join in ArcGIS). The result of this method would be essentially the same as summarising your data externally (in a database or spreadsheet) and then performing a table join. 
 
 1.  Select the tool `Vector>Analysis Tools>Count Points in Polygon`
 2.  In the Count Points in Polygon window select your counties layer (`UKDefinitionA`) as `Polygons` and the geocoded alumni layer that you imported (`GeocodedAlumni`) as `Points`. The box `Count Field Name` defaults to 'NUMPOINTS' - this is the name of the extra column that will be added. The final box `Count` specifies what to do with the result of this action, leaving it set to default will create a new temporary (that is, not yet saved to a file) layer called `Count`. You could click the `...` to specify a file name to save it straight away.
