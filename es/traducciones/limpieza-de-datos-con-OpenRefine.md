@@ -135,7 +135,7 @@ Una vez que sus datos han sido limpiados, puede dar el siguiente paso y explorar
 Si sólo recordara una cosa de esta lección, debería ser lo siguiente: *todos los datos están sucios, pero usted puede hacer algo para remediarlo*. Como le hemos mostrado, hay ya bastantes cosas que puede hacer usted mismo para aumentar significativamente la calidad de los datos. En primer lugar, ha aprendido cómo puede obtener una panorámica rápida de cuántos valores vacíos contiene su conjunto de datos y con qué frecuencia se utiliza un valor determinado (por ejemplo, una palabra clave) en toda una colección. Estas lecciones también han demostrado cómo resolver problemas recurrentes tales como duplicados e inconsistencias ortográficas de forma automatizada con la ayuda de OpenRefine. No dude en experimentar con las funciones de limpieza, ya que está realizando estos pasos en una copia de su conjunto de datos, y *OpenRefine* le permite rastrear todos sus pasos (y volver atrás) en el caso de que haya cometido un error.
 
 
-  [^1]: N. del T.:  Denomiomado también conciliar o reconciliar.
+  [1]: N. del T.:  Denominado también conciliar o reconciliar.
 
   [*OpenRefine*]: http://openrefine.org "OpenRefine"
   [Powerhouse museum]: http://www.powerhousemuseum.com
