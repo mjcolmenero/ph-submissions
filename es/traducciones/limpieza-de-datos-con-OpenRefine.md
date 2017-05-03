@@ -12,7 +12,6 @@ editors:
 - Adam Crymble
 translator:
 - María-Jesús Colmenero-Ruiz
-date: 2017-03-05
 translator-reviewer:
 layout: default
 difficulty: 2
