@@ -12,6 +12,7 @@ editors:
 - Adam Crymble
 translator:
 - María-Jesús Colmenero-Ruiz
+- date: 2017-03-05
 translator-reviewer:
 layout: default
 difficulty: 2
@@ -63,15 +64,15 @@ En la página de inicio de *OpenRefine*, cree un nuevo proyecto utilizando el ar
 
 El conjunto de datos del museo Powerhouse está formado por metadatos detallados de todos los objetos de la colección, incluyendo título, descripción, varias categorías a las que pertenece el objeto, información de procedencia y un vínculo persistente al objeto en el sitio web del museo. Para tener una idea de a qué objeto corresponden los metadatos simplemente haga clic en el vínculo persistente y se abrirá el sitio web.
 
-{% include figure.html filename="powerhouseScreenshot.png" caption="Figura 1: Captura de pantalla de un Objeto de Muestra del sitio web del Museo Powerhouse" %}
+{% include figure.html filename="powerhouseScreenshot.png" caption="Figura 1: Captura de pantalla de un Objeto de Muestra del sitio web del Museo Powerhouse" %} [^2]
 
 ### Conozca sus datos
 
-Lo primero que debe hacer es echar un vistazo general y conocer sus datos. Puede inspeccionar los diferentes valores de datos mostrándolos en `facetas`. Se podría considerar una [faceta](https://es.wikipedia.org/wiki/B%C3%BAsqueda_por_facetas) como una lente a través de la cual se visualiza un subconjunto específico de los datos, basado en un criterio de su elección. Haga clic en el triángulo situado delante del nombre de la columna, seleccione Facetas y cree una faceta. Por ejemplo, intente crear una faceta de `texto` o una faceta `numérica`, dependiendo de la naturaleza de los valores contenidos en los campos (los valores numéricos se muestran en color verde). Sin embargo, debe tener en cuenta que las facetas de texto son más útiles en campos con valores redundantes (por ejemplo,  Categorías); si al ejecutarse le aparece el error 'son muchas para mostrar', puede optar por aumentar el límite de recuento de opciones por encima de los 2.000 predeterminados, aunque un límite demasiado alto puede ralentizar la aplicación (5.000 suele ser una opción segura). Las facetas numéricas no tienen esta restricción. Para más opciones, seleccione Facetas personalizadas: la faceta por blanco, por ejemplo, resulta útil para saber cuántos valores se rellenaron para cada campo. Las exploraremos  más adelante en los siguientes ejercicios.
+Lo primero que debe hacer es echar un vistazo general y conocer sus datos. Puede inspeccionar los diferentes valores de datos mostrándolos en `facetas`. Se podría considerar una [faceta](https://es.wikipedia.org/wiki/B%C3%BAsqueda_por_facetas) como una lente a través de la cual se visualiza un subconjunto específico de los datos, basado en un criterio de su elección. Haga clic en el triángulo situado delante del nombre de la columna, seleccione Facetas y cree una faceta. Por ejemplo, intente crear una faceta de `texto` o una faceta `numérica`, dependiendo de la naturaleza de los valores contenidos en los campos (los valores numéricos se muestran en color verde [^3]). Sin embargo, debe tener en cuenta que las facetas de texto son más útiles en campos con valores redundantes (por ejemplo,  Categorías); si al ejecutarse le aparece el error 'son muchas para mostrar', puede optar por aumentar el límite de recuento de opciones por encima de los 2.000 predeterminados, aunque un límite demasiado alto puede ralentizar la aplicación (5.000 suele ser una opción segura). Las facetas numéricas no tienen esta restricción. Para más opciones, seleccione Facetas personalizadas: la faceta por blanco, por ejemplo, resulta útil para saber cuántos valores se rellenaron para cada campo. Las exploraremos  más adelante en los siguientes ejercicios.
 
 ### Eliminar filas en blanco
 
-Una cosa que notará al crear una faceta numérica para la columna Record ID (Identificador del registro) es que tres filas están vacías. Puede encontrarlos deseleccionando la casilla Numérico, dejando sólo valores No-numéricos. En realidad, estos valores no están realmente en blanco sino que contienen un solo carácter de espacio en blanco, que puede verse moviendo el cursor hasta donde debería haber estado y haciendo clic en el botón '**Editar**' que aparece. Para eliminar estas filas, haga clic en el triángulo que se encuentra delante de la primera columna denominada '**Todas**', seleccione '**Editar filas**' y, a continuación, '**Eliminar todas las filas que encajen**'. Cierre la faceta numérica para ver las restantes 75.811 filas.
+Una cosa que notará al crear una faceta numérica [^4] para la columna Record ID (Identificador del registro) es que tres filas están vacías. Puede encontrarlos deseleccionando la casilla Numérico, dejando sólo valores No-numéricos. En realidad, estos valores no están realmente en blanco sino que contienen un solo carácter de espacio en blanco, que puede verse moviendo el cursor hasta donde debería haber estado y haciendo clic en el botón '**Editar**' que aparece. Para eliminar estas filas, haga clic en el triángulo que se encuentra delante de la primera columna denominada '**Todas**', seleccione '**Editar filas**' y, a continuación, '**Eliminar todas las filas que encajen**'. Cierre la faceta numérica para ver las restantes 75.811 filas.
 
 ### Eliminar duplicados
 
@@ -99,7 +100,7 @@ El método de agrupación por defecto no es demasiado complejo, por eso no encue
 
 ### Aplicación de transformaciones ad-hoc mediante el uso de expresiones regulares
 
-Como recordará se produjo un aumento en el número de registros tras el proceso de desagregación: nueve registros aparecieron de la nada. Para encontrar la causa de esta disparidad, necesitamos retroceder en el tiempo hasta antes de que separaramos las categorías en filas diferentes. Para ello, active la ficha Deshacer/Rehacer a la derecha de la ficha Facetas/Filtros y obtendrá un historial de todas las acciones que realizó desde la creación del proyecto. Seleccione el paso justo antes de 'Split multi-valued cells in column Categories' (Dividir celdas multi-valuadas en la columna categorías) (si ha seguido nuestro ejemplo este debería ser 'Remove 84 rows' (Eliminar 84 filas)) y luego vuelva a la ficha Facetas/Filtros.
+Como recordará se produjo un aumento en el número de registros tras el proceso de desagregación: nueve registros aparecieron de la nada. Para encontrar la causa de esta disparidad, necesitamos retroceder en el tiempo hasta antes de que separaramos las categorías en filas diferentes. Para ello, active la ficha Deshacer/Rehacer a la derecha de la ficha Facetas/Filtros y obtendrá un historial de todas las acciones que realizó desde la creación del proyecto. Seleccione el paso justo antes de 'Split multi-valued cells in column Categories' [^5] (Dividir celdas multi-valuadas en la columna categorías) (si ha seguido nuestro ejemplo este debería ser 'Remove 84 rows' (Eliminar 84 filas)) y luego vuelva a la ficha Facetas/Filtros.
 
 La cuestión surgió durante la operación de división con el carácter barra vertical, por lo que hay una gran probabilidad de que todo lo que salió mal esté vinculado a este carácter. Apliquemos un filtro en la columna Categorías seleccionando '**Filtro de texto**' en el menú. Primero escriba un solo `|` en el campo de la izquierda: *OpenRefine* le informa que hay 71.064 registros coincidentes (es decir, registros que contienen una barra vertical) de un total de 75.727. Las celdas que no contienen una barra vertical pueden estar en blanco, pero también pueden ser celdas que contienen una sola categoría sin separador, como el registro 29 que sólo tiene 'Scientific instruments'.
 
@@ -135,8 +136,13 @@ Una vez que sus datos han sido limpiados, puede dar el siguiente paso y explorar
 Si sólo recordara una cosa de esta lección, debería ser lo siguiente: *todos los datos están sucios, pero usted puede hacer algo para remediarlo*. Como le hemos mostrado, hay ya bastantes cosas que puede hacer usted mismo para aumentar significativamente la calidad de los datos. En primer lugar, ha aprendido cómo puede obtener una panorámica rápida de cuántos valores vacíos contiene su conjunto de datos y con qué frecuencia se utiliza un valor determinado (por ejemplo, una palabra clave) en toda una colección. Estas lecciones también han demostrado cómo resolver problemas recurrentes tales como duplicados e inconsistencias ortográficas de forma automatizada con la ayuda de OpenRefine. No dude en experimentar con las funciones de limpieza, ya que está realizando estos pasos en una copia de su conjunto de datos, y *OpenRefine* le permite rastrear todos sus pasos (y volver atrás) en el caso de que haya cometido un error.
 
 
-  [1]: N. del T.:  Denominado también conciliar o reconciliar.
-
+###### Notas de la traductora:
+  [^1]: Denominado también conciliar o reconciliar.
+  [^2]: La página del Museo Powerhouse ha sido modificada desde la publicación original de esta lección en 2013. La página actual que mustra la información de este mismo objeto de la imagen es https://collection.maas.museum/object/11848
+  [^3]: Es posible que al cargar este proyecto no vea ninguna columna con este color. Esto significa que ningún campo tiene definidos sus valores como numéricos.
+  [^4]: Al cargar el proyecto es muy posible que esta columna aparezca con formato de texto. Para poder aplicar una faceta numérica primero hay que convertirla a formato numéric: '**Editar celdas**' \> '**Transformaciones comunes**' \> '**a número**'
+  [^5]: Esta parte de la interface del programa no aparece traducida.
+  
   [*OpenRefine*]: http://openrefine.org "OpenRefine"
   [Powerhouse museum]: http://www.powerhousemuseum.com
     "Powerhouse museum"
