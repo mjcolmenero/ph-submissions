@@ -1,3 +1,4 @@
+---
 title: Introducción a los principios de los Datos abiertos enlazados
 authors:
 - Jonathan Blaney
@@ -7,28 +8,31 @@ reviewers:
 editors:
 - Adam Crymble
 date: 2017-05-07
+translation-date: 2017-11-11
 translator:
-- María-Jesús Colmenero-Ruiz
-- date: 2017-03-05
-- translation-editor:
+- María-Jesús Colmenero-Ruiz 
+translation-editor:
 - Antonio Rojas Castro
 translator-reviewer:
 - aún sin determinar
 - aún sin determinar
 layout: lesson
 difficulty: 1
-activity: 
-topics: 
+activity: obtener
+topics: [datos abiertos enlazados]
 abstract: 
 redirect_from: “es/lessons/intro-to-linked-data"
 
 ---
+
+{% include toc.html %}
+
 ## Introducción y contexto de la lección
 
 Esta lección ofrece una introducción breve y concisa a los [Datos abiertos enlazados](https://es.wikipedia.org/wiki/Datos_enlazados) (LOD). No es necesario ningún conocimiento previo. Los lectores deberían conseguir una comprensión clara de los conceptos que fundamentan los datos abiertos eenlazados, cómo se utilizan y cómo se crean. El tutorial se divide en cinco partes, más una de lecturas adicionales:
 
 1. Datos abiertos enlazados: ¿qué son?
-2. El papel del [Identificador de Recursos Uniforme](https://es.wikipedia.org/wiki/Identificador_de_recursos_uniforme)​​(URI)
+2. El papel del [Identificador de Recursos Uniforme](https://es.wikipedia.org/wiki/Identificador_de_recursos_uniforme) (URI)
 3. Cómo LOD organiza el conocimiento: [ontologías](https://es.wikipedia.org/wiki/Ontolog%C3%ADa_(inform%C3%A1tica))
 4. El [Marco de descripción de recursos](https://es.wikipedia.org/wiki/Resource_Description_Framework) (RDF) y formatos de datos
 5. Interrogando a los datos abiertos enlazados con [SPARQL](https://es.wikipedia.org/wiki/SPARQL)
@@ -40,7 +44,7 @@ Si necesitas aprender a explorar LOD usando el lenguaje de consulta [SPARQL](htt
 
 Con el fin de proporcionar a los lectores una base sólida de los principios básicos de LOD, este tutorial no ofrecerá una cobertura completa de todos los conceptos LOD. Los siguientes dos conceptos de LOD *no* serán objetivos de esta lección:
 
-1. La [web semántica](https://es.wikipedia.org/wiki/Web_sem%C3%A1ntica) y el [razonamiento semántico](https://en.wikipedia.org/wiki/Semantic_reasoner) de [conjuntos de datos](https: / /en.wikipedia.org/wiki/Data_set). Un razonador semántico deduciría que Jorge VI es el hermano o medio hermano de Eduardo VIII, dado el hecho de que a) Eduardo VIII es el hijo de Jorge V y b) Jorge VI es el hijo de Jorge V. Este tutorial no se centra en este tipo de tareas.
+1. La [web semántica](https://es.wikipedia.org/wiki/Web_sem%C3%A1ntica) y el [razonamiento semántico](https://en.wikipedia.org/wiki/Semantic_reasoner) de [conjuntos de datos](https://es.wikipedia.org/wiki/Conjunto_de_datos). Un razonador semántico deduciría que Jorge VI es el hermano o medio hermano de Eduardo VIII, dado el hecho de que a) Eduardo VIII es el hijo de Jorge V y b) Jorge VI es el hijo de Jorge V. Este tutorial no se centra en este tipo de tareas.
 
 2. La creación y subida de conjuntos de datos abiertos enlazados a la [nube de datos enlazados](http://linkeddatacatalog.dws.informatik.uni-mannheim.de/state/). Compartir tu LOD es un principio importante, al que se anima más adelante. Sin embargo, los aspectos prácticos de contribuir con tu LOD a la nube de datos enlazados está fuera del alcance de esta lección. Al final de este tutorial hay algunos recursos disponibles que pueden ayudarte a comenzar con esta tarea.
 
@@ -55,7 +59,7 @@ Para lograr este objetivo, mientras trabajas con LOD, recuerda siempre los sigui
 
 2. **Refiérete a una entidad de la misma forma que otras personas**. Si tiene datos sobre la misma persona/lugar/cosa en dos o más sitios, asegúrate de referirte a la persona/lugar/cosa de la misma manera en todos los casos.
 
-3. **Publica tus datos en abierto**. Por en abierto quiero decir para que cualquiera pueda usar sin pagar una cuota y en un formato que no requiera [software propietario](https://en.wikipedia.org/wiki/Proprietary_software).
+3. **Publica tus datos en abierto**. Por en abierto quiero decir para que cualquiera pueda usar sin pagar una cuota y en un formato que no requiera [software propietario](https://es.wikipedia.org/wiki/Software_propietario).
 
 Comencemos con un ejemplo de datos sobre una persona, usando un habitual [par atributo-valor](https://en.wikipedia.org/wiki/Attribute%E2%80%93value_pair) típico en computación:
 
@@ -110,7 +114,7 @@ Por ahora hay tres puntos clave que recordar:
 - LOD consiste en triples que describen relaciones entre entidades
 
 ##El papel del Identificador Uniforme de Recursos (Uniform Resource Identifier - URI)
-Una parte esencial de LOD es el [Identificador Uniforme de Recursos](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier) o URI. El URI es una manera unívoca fiable de representar una entidad (una persona, un objeto, una relación, etc.) en una forma que es utilizable pot todos en el mundo.
+Una parte esencial de LOD es el [Identificador Uniforme de Recursos](https://es.wikipedia.org/wiki/Identificador_de_recursos_uniforme) o URI. El URI es una manera unívoca fiable de representar una entidad (una persona, un objeto, una relación, etc.) en una forma que es utilizable pot todos en el mundo.
 
 En la sección anterior usamos dos números distintos para identificar nuestros dos Jack Straws diferentes.
 
@@ -122,7 +126,7 @@ El problema es que en todo el mundo hay muchas bases de datos que contienen pers
     http://viaf.org/viaf/64183282/
     http://viaf.org/viaf/33059614/
 
-Así como el número único desambiguó nuestros dos Jack Straws, el URI completo anterior nos ayuda a eliminar la ambigüedad entre todos los diferentes archivos de autoridad que existen. En este caso, está claro que estamos usando VIAF como nuestro archivo de autoridad. Ya has visto esta forma de desambiguación muchas veces en la web. Hay muchos sitios web alrededor del mundo con páginas llamadas `/home` o `/faq `. Pero no hay confusión porque el [dominio](https://en.wikipedia.org/wiki/Domain_name) (la primera parte del Localizador Uniforme de Recursos (URL) - por ejemplo,`bbc.co.uk )` es único y, por lo tanto, todas las páginas que son parte de ese dominio son únicas, diferenciándose de otras páginas `/faq` de otros sitios web. En la dirección  `http://www.bbc.co.uk/faqs` , es la parte `bbc.co.uk` la que hace únicas las páginas siguientes. Esto es tan obvio para las personas que usan la web todo el tiempo que no piensan en ello. Probablemente también sepas que si quieres iniciar un sitio web llamado `bbc.co.uk`  no puedes hacerlo, porque ese nombre ya se ha registrado con la autoridad correspondiente, que es el [Sistema de Nombres de Dominio](https://en.wikipedia.org/wiki/Domain_Name_System) (Domain Name System - DNS). El registro garantiza la unicidad. Los URIs también deben ser únicos.
+Así como el número único desambiguó nuestros dos Jack Straws, el URI completo anterior nos ayuda a eliminar la ambigüedad entre todos los diferentes archivos de autoridad que existen. En este caso, está claro que estamos usando VIAF como nuestro archivo de autoridad. Ya has visto esta forma de desambiguación muchas veces en la web. Hay muchos sitios web alrededor del mundo con páginas llamadas `/home` o `/faq `. Pero no hay confusión porque el [dominio](https://es.wikipedia.org/wiki/Dominio_de_Internet) (la primera parte del Localizador Uniforme de Recursos (URL) - por ejemplo,`bbc.co.uk )` es único y, por lo tanto, todas las páginas que son parte de ese dominio son únicas, diferenciándose de otras páginas `/faq` de otros sitios web. En la dirección  `http://www.bbc.co.uk/faqs` , es la parte `bbc.co.uk` la que hace únicas las páginas siguientes. Esto es tan obvio para las personas que usan la web todo el tiempo que no piensan en ello. Probablemente también sepas que si quieres iniciar un sitio web llamado `bbc.co.uk`  no puedes hacerlo, porque ese nombre ya se ha registrado con la autoridad correspondiente, que es el [Sistema de Nombres de Dominio](https://es.wikipedia.org/wiki/Sistema_de_nombres_de_dominio) (Domain Name System - DNS). El registro garantiza la unicidad. Los URIs también deben ser únicos.
 
 Si bien los ejemplos anteriores se parecen a las URLs, es posible también construir un URI que no se parezca en nada a una URL. Tenemos muchas maneras de identificar personas y cosas de manera única y rara vez lo pensamos o nos preocupamos de ello. Los códigos de barras, los números de pasaporte e incluso su dirección postal están diseñados para ser únicos. En el mundo desarrollado los números de teléfono móvil se colocan con frecuencia como signos de tienda precisamente porque son únicos. Todos ellos podrían usarse como URIs.
 
@@ -139,7 +143,7 @@ Pero esto no es esencial. Muchos de los URI no son desreferenciables, como en el
 El ejemplo de VIAF nos lleva a otra cosa importante sobre los URIs: no los cree a menos que sea necesario. Las personas y las organizaciones han estado haciendo esfuerzos concertados para construir listas de URIs adecuadas y LOD no funcionará de manera efectiva si la gente duplica ese trabajo creando nuevos URIs innecesariamente. Por ejemplo, VIAF cuenta con el apoyo de muchas bibliotecas a nivel internacional. Si desea construir URI para personas, VIAF es una muy buena opción. Si no puede encontrar a algunas personas en VIAF, u otras listas de autoridades, sólo entonces podrías necesitar hacer las tuyas propias.
 
 ## Cómo organiza LOD el conocimiento: ontologías
-Puede que no haya sido obvio por los triples individuales que vimos en la sección de apertura, pero LOD puede responder preguntas complejas. Cuando unes las tripletas forman un [grafo](https://en.wikipedia.org/wiki/Conceptual_graph), debido a la forma en que las tripletas se entrelazan. Supongamos que queremos encontrar una lista de todas las personas que fueron alumnos del compositor Franz Liszt. Si la información está en triples de datos vinculados sobre pianistas y sus profesores, podemos averigüarlo con una consulta (veremos este lenguaje de consulta, llamado SPARQL, en la sección final).
+Puede que no haya sido obvio por los triples individuales que vimos en la sección de apertura, pero LOD puede responder preguntas complejas. Cuando unes las tripletas forman un [grafo](https://es.wikipedia.org/wiki/Gr%C3%A1ficos_conceptuales), debido a la forma en que las tripletas se entrelazan. Supongamos que queremos encontrar una lista de todas las personas que fueron alumnos del compositor Franz Liszt. Si la información está en triples de datos vinculados sobre pianistas y sus profesores, podemos averigüarlo con una consulta (veremos este lenguaje de consulta, llamado SPARQL, en la sección final).
 
 Por ejemplo, el pianista Charles Rosen fue alumno del pianista Moriz Rosenthal, quien a su vez fue alumno de Franz Liszt. Ahora expresemos eso como dos triples (nos limitaremos a usar cadenas para los nombres en lugar de números de ID para que los ejemplos sean más legibles):
 
@@ -151,7 +155,7 @@ Podríamos haber creado nuestros triples igualmente de esta manera:
     "Charles Rosen" leEnseñóPiano "Moriz Rosenthal" .
     "Moriz Rosenthal" leEnseñóPiano "Franz Liszt" .
 
-Estamos poniendo ejemplos simplemente con el fin de ilustrar, pero si deseas enlazar tus datos a otros conjuntos de datos en la 'nube de datos vinculados' debes ver qué convenciones se utilizan en esos conjuntos de datos y hacer lo mismo. En realidad, esta es una de las características más útiles de LOD porque gran parte del trabajo se ha realizado para ti. La gente ha dedicado mucho tiempo a desarrollar formas de modelar información dentro de un área particular de estudio y a pensar en cómo se pueden representar las relaciones dentro de esa área. Estos modelos generalmente se conocen como ontologías. Una ontología es una abstracción que permite que representar un conocimiento particular sobre el mundo. Las ontologías, en este sentido, son bastante nuevas y fueron diseñadas para hacer lo que hace una [taxonomía](https://en.wikipedia.org/wiki/Taxonomy) jerárquica (piense en la clasificación de las especies del [sistema de Linneo](https://en.wikipedia.org/wiki/Linnaean_taxonomy), pero de manera más flexible.
+Estamos poniendo ejemplos simplemente con el fin de ilustrar, pero si deseas enlazar tus datos a otros conjuntos de datos en la 'nube de datos vinculados' debes ver qué convenciones se utilizan en esos conjuntos de datos y hacer lo mismo. En realidad, esta es una de las características más útiles de LOD porque gran parte del trabajo se ha realizado para ti. La gente ha dedicado mucho tiempo a desarrollar formas de modelar información dentro de un área particular de estudio y a pensar en cómo se pueden representar las relaciones dentro de esa área. Estos modelos generalmente se conocen como ontologías. Una ontología es una abstracción que permite que representar un conocimiento particular sobre el mundo. Las ontologías, en este sentido, son bastante nuevas y fueron diseñadas para hacer lo que hace una [taxonomía](https://es.wikipedia.org/wiki/Taxonom%C3%ADa) jerárquica (piense en la clasificación de las especies del [sistema de Linneo](https://es.wikipedia.org/wiki/Taxonom%C3%ADa_linneana), pero de manera más flexible.
 
 Una ontología es más flexible porque no es jerárquica. Su objetivo es representar la fluidez del mundo real, donde las cosas se pueden relacionarse entre sí de formas más complejas que las representadas por una estructura jerárquica de tipo arbóreo. En cambio, una ontología es más como una tela de araña.
 
